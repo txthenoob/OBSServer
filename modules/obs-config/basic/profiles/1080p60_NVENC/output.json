@@ -1,0 +1,7 @@
+{
+    "Mode": "Advanced",
+    "RecordingFormat": "mkv",
+    "Encoder": "ffmpeg_nvenc",
+    "Bitrate": "8000",
+    "KeyframeInterval": "2"
+}

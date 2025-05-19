@@ -1,0 +1,10 @@
+{
+    "BaseCX": 1920,
+    "BaseCY": 1080,
+    "OutputCX": 1920,
+    "OutputCY": 1080,
+    "FPSType": 1,
+    "FPSInt": 60,
+    "FPSNum": 60,
+    "FPSDen": 1
+}
