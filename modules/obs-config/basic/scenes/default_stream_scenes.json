@@ -1,0 +1,97 @@
+{
+    "name": "default_stream_scenes",
+    "current_program_scene": "MosaicView",
+    "current_preview_scene": "VSCode",
+    "scenes": [
+        {
+            "name": "VSCode",
+            "sources": [
+                {
+                    "name": "VSCode_Window",
+                    "settings": {
+                        "window": "code.exe"
+                    },
+                    "type": "window_capture"
+                },
+                {
+                    "name": "TitleOverlay",
+                    "settings": {
+                        "file": "overlays/title_code.png"
+                    },
+                    "type": "image_source"
+                }
+            ]
+        },
+        {
+            "name": "Terminal",
+            "sources": [
+                {
+                    "name": "Tilix_Window",
+                    "settings": {
+                        "window": "tilix"
+                    },
+                    "type": "window_capture"
+                },
+                {
+                    "name": "TitleOverlay",
+                    "settings": {
+                        "file": "overlays/title_terminal.png"
+                    },
+                    "type": "image_source"
+                }
+            ]
+        },
+        {
+            "name": "Browser",
+            "sources": [
+                {
+                    "name": "Browser_Window",
+                    "settings": {
+                        "window": "chrome"
+                    },
+                    "type": "window_capture"
+                },
+                {
+                    "name": "TitleOverlay",
+                    "settings": {
+                        "file": "overlays/title_browser.png"
+                    },
+                    "type": "image_source"
+                }
+            ]
+        },
+        {
+            "name": "MosaicView",
+            "sources": [
+                {
+                    "name": "VSCode_Window",
+                    "settings": {
+                        "window": "code.exe"
+                    },
+                    "type": "window_capture"
+                },
+                {
+                    "name": "Tilix_Window",
+                    "settings": {
+                        "window": "tilix"
+                    },
+                    "type": "window_capture"
+                },
+                {
+                    "name": "Browser_Window",
+                    "settings": {
+                        "window": "chrome"
+                    },
+                    "type": "window_capture"
+                },
+                {
+                    "name": "FrameOverlay",
+                    "settings": {
+                        "file": "overlays/frame_mosaic.png"
+                    },
+                    "type": "image_source"
+                }
+            ]
+        }
+    ]
+}
