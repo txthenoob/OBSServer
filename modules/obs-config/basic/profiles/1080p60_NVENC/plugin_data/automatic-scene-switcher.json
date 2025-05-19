@@ -1,23 +1,32 @@
-{
-  "enabled": true,
-  "rules": [
-    {
-      "program": "code",
-      "window": "",
-      "scene": "VSCode"
-    },
-    {
-      "program": "google-chrome",
-      "window": "",
-      "scene": "Browser"
-    },
-    {
-      "program": "tilix",
-      "window": "",
-      "scene": "Terminal"
-    }
-  ],
-  "default_scene": "MosaicView",
-  "check_interval": 2,
-  "mode": "match_executable"
+import json
+
+# Contenido del autoswitcher en Ubuntu (OBS Linux)
+autoswitcher_config = {
+    "enabled": True,
+    "rules": [
+        {
+            "program": "code",
+            "window": "",
+            "scene": "VSCode"
+        },
+        {
+            "program": "google-chrome",
+            "window": "",
+            "scene": "Browser"
+        },
+        {
+            "program": "tilix",
+            "window": "",
+            "scene": "Terminal"
+        }
+    ],
+    "default_scene": "MosaicView",
+    "check_interval": 2,
+    "mode": "match_executable"
 }
+
+file_path = "/mnt/data/automatic-scene-switcher.json"
+with open(file_path, "w") as f:
+    json.dump(autoswitcher_config, f, indent=4)
+
+file_path
