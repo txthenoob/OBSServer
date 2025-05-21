@@ -11,7 +11,7 @@ cd "$TMP_DIR"
 bash modules/obs.sh
 bash modules/audio.sh
 bash modules/docker-deps.sh
-bash modules/cleanup.sh
+#bash modules/cleanup.sh
 
 echo ">> Copying OBS configuration..."
 mkdir -p ~/.config/obs-studio/
