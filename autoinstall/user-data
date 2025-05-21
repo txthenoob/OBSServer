@@ -1,0 +1,52 @@
+# Default credentials for OBS deployment demonstration.
+# Username: streamer
+# Password: DemoOBS2024!
+# ⚠️ This password is for demo purposes only.
+# ⚠️ SSH login with password is enabled after installation.
+# ⚠️ You should upload your SSH public key and manually disable password login in /etc/ssh/sshd_config.
+# ⚠️ Do NOT use this configuration in production environments.
+
+version: 1
+identity:
+  hostname: obs-server
+  username: streamer
+  password: $6$DF0WfZta1M/GOsja$sXQyeuebFCMHkH5/l.HX4ogefeBPwSdwv2Oo0a92QFYPfCNZuZ1B6g7gjKCKT95gUbX1ZYo5PNEQzxBVA46AY/
+keyboard:
+  layout: es
+  variant: ''
+locale: es_ES.UTF-8
+storage:
+  layout:
+    name: direct
+updates:
+  update: true
+packages:
+- obs-studio
+- nvidia-driver-535
+- curl
+- git
+- ubuntu-drivers-common
+- network-manager
+- xserver-xorg
+- xinit
+- openbox
+- lightdm
+late-commands:
+- mkdir -p /home/streamer/obs-setup
+- cd /home/streamer/obs-setup && git clone https://github.com/txthenoob/OBSServer
+  .
+- chmod +x /home/streamer/obs-setup/setup.sh
+- runuser -l streamer -c '/home/streamer/obs-setup/setup.sh'
+- systemctl enable ssh
+- mkdir -p /home/streamer/.ssh
+- chown streamer:streamer /home/streamer/.ssh
+- chmod 700 /home/streamer/.ssh
+- systemctl restart ssh
+apt:
+  preserve_sources_list: false
+  primary:
+  - arches:
+    - amd64
+    uri: http://archive.ubuntu.com/ubuntu
+ssh:
+  install-server: true
