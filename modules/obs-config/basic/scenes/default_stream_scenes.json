@@ -5,13 +5,14 @@
     "scenes": [
         {
             "name": "VSCode",
+            "__comment": "NDI stream from main system showing VSCode window",
             "sources": [
                 {
-                    "name": "VSCode_Window",
+                    "name": "VSCode_NDI",
                     "settings": {
-                        "window": "code.exe"
+                        "source": "VSCodeNDI"
                     },
-                    "type": "window_capture"
+                    "type": "ndi_source"
                 },
                 {
                     "name": "TitleOverlay",
@@ -24,13 +25,14 @@
         },
         {
             "name": "Terminal",
+            "__comment": "NDI stream from main system showing terminal window",
             "sources": [
                 {
-                    "name": "Tilix_Window",
+                    "name": "Terminal_NDI",
                     "settings": {
-                        "window": "tilix"
+                        "source": "TerminalNDI"
                     },
-                    "type": "window_capture"
+                    "type": "ndi_source"
                 },
                 {
                     "name": "TitleOverlay",
@@ -43,13 +45,14 @@
         },
         {
             "name": "Browser",
+            "__comment": "NDI stream from main system showing web browser",
             "sources": [
                 {
-                    "name": "Browser_Window",
+                    "name": "Browser_NDI",
                     "settings": {
-                        "window": "chrome"
+                        "source": "BrowserNDI"
                     },
-                    "type": "window_capture"
+                    "type": "ndi_source"
                 },
                 {
                     "name": "TitleOverlay",
@@ -61,28 +64,69 @@
             ]
         },
         {
-            "name": "MosaicView",
+            "name": "UnrealCam",
+            "__comment": "NDI input from Unreal Engine Metahuman camera system",
             "sources": [
                 {
-                    "name": "VSCode_Window",
+                    "name": "UnrealCam_NDI",
                     "settings": {
-                        "window": "code.exe"
+                        "source": "UnrealNDI"
                     },
-                    "type": "window_capture"
+                    "type": "ndi_source"
                 },
                 {
-                    "name": "Tilix_Window",
+                    "name": "TitleOverlay",
                     "settings": {
-                        "window": "tilix"
+                        "file": "overlays/title_unreal.png"
                     },
-                    "type": "window_capture"
+                    "type": "image_source"
+                }
+            ]
+        },
+        {
+            "name": "MicroscopeCam",
+            "__comment": "NDI input from microscope connected to main system",
+            "sources": [
+                {
+                    "name": "Microscope_NDI",
+                    "settings": {
+                        "source": "MicroscopeNDI"
+                    },
+                    "type": "ndi_source"
                 },
                 {
-                    "name": "Browser_Window",
+                    "name": "TitleOverlay",
                     "settings": {
-                        "window": "chrome"
+                        "file": "overlays/title_microscope.png"
                     },
-                    "type": "window_capture"
+                    "type": "image_source"
+                }
+            ]
+        },
+        {
+            "name": "MosaicView",
+            "__comment": "Combined view of multiple NDI windows",
+            "sources": [
+                {
+                    "name": "VSCode_NDI",
+                    "settings": {
+                        "source": "VSCodeNDI"
+                    },
+                    "type": "ndi_source"
+                },
+                {
+                    "name": "Terminal_NDI",
+                    "settings": {
+                        "source": "TerminalNDI"
+                    },
+                    "type": "ndi_source"
+                },
+                {
+                    "name": "Browser_NDI",
+                    "settings": {
+                        "source": "BrowserNDI"
+                    },
+                    "type": "ndi_source"
                 },
                 {
                     "name": "FrameOverlay",
