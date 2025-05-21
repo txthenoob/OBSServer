@@ -1,38 +1,38 @@
-setup_sh = """#!/bin/bash
+#!/bin/bash
 set -e
 
 # -----------------------------------------------------------------------------
 # OBS Server Setup Script
-# Can be used manually or automatically (e.g., via autoinstall late-commands)
+# This script installs and configures an OBS streaming server environment.
+# Compatible with both manual execution and automated deployment.
 # -----------------------------------------------------------------------------
 
-echo ">> Running OBS Server setup..."
+echo ">> Starting OBS Server setup..."
 
-# If not already inside the repo, clone it
+# Ensure Git is available before cloning the repository
+if ! command -v git &> /dev/null; then
+  echo ">> Git is not installed. Installing Git..."
+  sudo apt update && sudo apt install -y git
+fi
+
+# Clone the repository only if not already inside the correct folder
 if [ ! -f modules/obs.sh ]; then
   echo ">> Cloning OBSServer repository..."
   git clone https://github.com/txthenoob/OBSServer.git obs-setup
   cd obs-setup
 fi
 
-# Make all modules executable
+# Make sure all module scripts are executable
 chmod +x modules/*.sh
 
-# Run setup modules
+# Execute each setup module in order
 bash modules/obs.sh
 bash modules/audio.sh
 bash modules/docker-deps.sh
 
-# Run optional cleanup if present
+# Run optional system cleanup if defined
 if [ -f modules/cleanup.sh ]; then
   bash modules/cleanup.sh
 fi
 
-echo ">> OBS Server setup complete."
-"""
-
-path = "/mnt/data/setup.sh"
-with open(path, "w") as f:
-    f.write(setup_sh)
-
-path
+echo ">> OBS Server setup completed successfully."
